@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class NewExpense extends StatefulWidget {
 
@@ -22,6 +23,12 @@ class _StateNewExpense extends State<NewExpense> {
     super.dispose();
   }
 
+  void _parentDatePicker (){
+    final now = DateTime.now();
+    final firstDate = DateTime(now.year -1,now.month,now.day);
+    showDatePicker(context: context,initialDate: now, firstDate: firstDate, lastDate: now);
+  }
+
   @override
   Widget build(context) {
 
@@ -39,16 +46,36 @@ class _StateNewExpense extends State<NewExpense> {
               )
             ),
           ),
-          SizedBox(height: 10,),
-          TextField(
-            controller: _amountController,
-            keyboardType: TextInputType.number,
-            decoration: const InputDecoration(
-              prefixText: '\$ ',
-              label: Text(
-                'Amount'
+          const SizedBox(height: 10,),
+          Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: _amountController,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    prefixText: '\$ ',
+                    label: Text(
+                      'Amount'
+                    ),
+                  ),
+                ),
               ),
-            ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const Text(
+                      'Selected Date'
+                    ),
+                    IconButton(
+                      onPressed: _parentDatePicker,
+                      icon: const Icon(Icons.calendar_month)
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
           Row(
             children: [
