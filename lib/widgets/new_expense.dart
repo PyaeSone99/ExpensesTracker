@@ -39,6 +39,14 @@ class _StateNewExpense extends State<NewExpense> {
   }
   var _selectedCategory = Category.leisure;
 
+  void _submitExpenseData(){
+    final enteredAmount = double.parse(_amountController.text);
+    final amountIsValid = enteredAmount == null || enteredAmount<= 0 ;
+    if (_titleController.text.trim().isEmpty || amountIsValid || _selectedDate == null) {
+      //error message here
+    }
+  }
+
   @override
   Widget build(context) {
 
@@ -119,9 +127,7 @@ class _StateNewExpense extends State<NewExpense> {
                 )
               ),
               ElevatedButton(
-                onPressed: (){
-                  
-                }, 
+                onPressed: _submitExpenseData, 
                 child: const Text(
                   'Save Expense'
                 )
