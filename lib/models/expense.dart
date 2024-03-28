@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:uuid/uuid.dart';
 
 const uuid = Uuid();
