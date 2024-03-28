@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 void main (){
   runApp(
-    const MaterialApp(
-      home: Expenses(),
+    MaterialApp(
+      theme: ThemeData().copyWith(scaffoldBackgroundColor: const Color.fromARGB(255, 250, 189, 252)),
+      home: const Expenses(),
     )
   );
 }
