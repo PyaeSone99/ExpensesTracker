@@ -9,9 +9,9 @@ var kDarkColorScheme = ColorScheme.fromSeed(
     brightness: Brightness.dark,
     seedColor: const Color.fromARGB(255, 5, 99, 125));
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((value) => {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+  //     .then((value) => {
             runApp(MaterialApp(
               darkTheme: ThemeData.dark().copyWith(
                 colorScheme: kDarkColorScheme,
@@ -43,6 +43,6 @@ void main() {
                           fontSize: 16))),
               // themeMode: ThemeMode.system,  //material3 is deprecated
               home: const Expenses(),
-            ))
-          });
+            ));
+          // })
 }
